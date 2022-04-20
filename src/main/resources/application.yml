@@ -1,0 +1,76 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  freemarker:
+    check-template-location: false
+  flyway:
+    schemas: true
+      #include: swagger
+      #devtools:
+      #restart:
+      #enabled: false
+      #livereload:
+    enabled: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 10000
+      idle-timeout: 600000
+      max-lifetime: 30000
+      minimum-idle: 5
+      maximum-pool-size: 50
+
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/Nostra Movie?serverTimezone=Asia/Jakarta
+    username: Nostra
+    password: Nostra
+
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      # Hibernate ddl auto (create, create-drop, validate, update, none)   properties:
+      hibernate.format_sql: true
+      hibernate.id.new_generator_mappings: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: true
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+server:
+  port: 9090
+  tomcat:
+    # default 100
+    max-connections: 100
+    # default 60000
+    connection-timeout: 30000
+
+logging:
+
+  file: /Users/user/Project/Coba/java-mini-project[budi santoso]/mini-project-tes/logs/application-dev.log
+
+  level:
+    org.hibernate.type: ERROR
+    web: INFO
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.transaction: DEBUG
+    com.permata.core: INFO
+    org.hibernate: ERROR
+    org.hibernate.stat: INFO
+
+upload.path: /Users/user/Project/Coba/upload/
+useTimezone: true
+useLegacyDatetimeCode: false
+serverTimezone: GMT+7
+debug: false
+
